@@ -1,0 +1,26 @@
+{
+    "basic": [
+        {
+            "ID": "111",
+            "Password": "aaa",
+            "Name": "Bob",
+            "Balance": 600
+        }
+    ],
+    "vip": [
+        {
+            "ID": "2345",
+            "Password": "blah",
+            "Name": "Ned",
+            "Balance": 1400
+        }
+    ],
+    "premium": [
+        {
+            "ID": "1234",
+            "Password": "blah",
+            "Name": "Dan",
+            "Balance": 3750.0
+        }
+    ]
+}
