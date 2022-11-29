@@ -16,21 +16,29 @@ class Client:
 
     def deposit(self, ammount):
         self.balance += ammount
+        if self.balance >= 10000:
+            self.tier = VIP
+            self.__class__ = VIP
+            print("You are valuable to us!, youv'e been upgraded to VIP")
+        if self.balance >= 100000:
+            self.tier = Premium
+            self.__class__ = Premium
+            print("You are valuable to us!, youv'e been upgraded to Premium")
         print(f'Deposit successful!, New balance is {self.balance}')
-        input('Press any key to continue')
+        input('Press Enter to continue')
 
     def withdraw(self, ammount):
         if self.balance >= ammount:
             self.balance -= ammount
             print(f'Withdraw successful!, New balance is {self.balance}')
-            input('Press any key to continue')
+            input('Press Enter to continue')
         else:
             print('Insufficient funds!')
-            input('Press any key to continue')
+            input('Press Enter to continue')
     
     def show_balance(self):
         print(f'Current balance is: {self.balance}')
-        input('Press any key to continue')
+        input('Press Enter to continue')
     
     def transfer(self, recepient, ammount, bank_name):
         for client in bank_name.clients:
@@ -39,14 +47,14 @@ class Client:
                     self.balance -= ammount
                     client.balance += ammount
                     print(f'Transfer successful!, New balance is {self.balance}')
-                    input('Press any key to continue')
+                    input('Press Enter to continue')
                     return
                 else:
                     print('Insufficient funds!')  
-                    input('Press any key to continue')
+                    input('Press Enter to continue')
                     return
         print('Recepient not found!')
-        input('Press any key to continue')
+        input('Press Enter to continue')
         return
 
     def to_json(self):
@@ -58,16 +66,20 @@ class Client:
 class VIP(Client):
         def deposit(self, ammount):
             self.balance += ammount * 1.05
+            if self.balance >= 100000 and self.tier == VIP:
+                self.tier = Premium
+                self.__class__ = Premium
+                print("You are valuable to us!, youv'e been upgraded to Premium")
             print(f'Deposit successful!, VIP and Premium get extra 5% for deposits! New balance is {self.balance}')
-            input('Press any key to continue')
+            input('Press Enter to continue')
 
 class Premium(VIP):
         def withdraw(self, ammount):
-            if self.balance - ammount >= -2000:
+            if self.balance - ammount >= -20000:
                 self.balance -= ammount
                 print(f'Withdraw successful!, Premiums are allowed to overdraft up to -2000, New balance is {self.balance}')
-                input('Press any key to continue')
+                input('Press Enter to continue')
             else:
                 print('Insufficient Credit!')
-                input('Press any key to continue')
+                input('Press Enter to continue')
         

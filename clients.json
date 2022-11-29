@@ -1,13 +1,12 @@
 {
-    "basic": [
+    "basic": [],
+    "vip": [
         {
             "ID": "111",
             "Password": "aaa",
             "Name": "Bob",
-            "Balance": 600
-        }
-    ],
-    "vip": [
+            "Balance": 115800.0
+        },
         {
             "ID": "2345",
             "Password": "blah",
@@ -21,6 +20,12 @@
             "Password": "blah",
             "Name": "Dan",
             "Balance": 3750.0
+        },
+        {
+            "ID": "33",
+            "Password": "33",
+            "Name": "33",
+            "Balance": 108572.5
         }
     ]
 }

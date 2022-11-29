@@ -11,38 +11,38 @@ class Bank:
         for client in self.clients:
             if client.id == id:
                 print('ID already exists')
-                input('Press any key to continue')
+                input('Press Enter to continue')
                 return  
         if tier == '': tier = Client  
         new_client = tier(id, pwd, name, balance, tier)
         self.clients.append(new_client)
         if self.init_add == False:
             print(f'New Client added: {new_client.__str__()}')
-            input('Press any key to continue')
+            input('Press Enter to continue')
 
     def remove_client(self, id):
         for client in self.clients:
             if client.id == id:
                 self.clients.remove(client)
                 print(f'{client.name} removed')
-                input('Press any key to continue')
+                input('Press Enter to continue')
                 return
         print('Not found!')
-        input('Press any key to continue') 
+        input('Press Enter to continue') 
 
     def search_client(self, id):
         for client in self.clients:
             if client.id == id:
                 print(client.__str__())
-                input('press any key to continue')
+                input('press Enter to continue')
                 return
         print('Not found!')
-        input('Press any key to continue')    
+        input('Press Enter to continue')    
     
     def print_all(self):
         for client in self.clients:
             print(client.__str__())
-        input('press any key to continue')
+        input('press Enter to continue')
 
     def sort_to_classes_and_convert_to_json(self):
         self.json_clients = {'basic':[], 'vip':[], 'premium':[]}
